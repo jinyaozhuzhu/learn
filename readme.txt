@@ -36,10 +36,13 @@ git reset HEAD readme.txt
 
 将本地仓库与远程的仓库同步
     1.本地仓库与github仓库连接
-    git remote add origin git@github.com:yaojinzhuzhu(用户名)/learngit(仓库名).git
+    git remote add origin git@github.com:yaojinzhuzhu(用户名)/learngit(用户名).git
     2. 重新设置连接
     git remote set-url origin git@github.com:username/repo_name.git
     3.本地库的所有内容推送到远程库上(第一次)
     git push -u origin master
     4.本地库的所有内容推送到远程库上(第n次)
-    git push origin master
+    git push origin master(如果出现错误则使用 git pull origin master)
+
+克隆远程仓库
+   clone git@github.com:jinyaozhuzhu(用户名)/learn(用户名).git
