@@ -56,4 +56,4 @@ git reset HEAD readme.txt
     合并: git merge branchName
     删除：git branch -d branchName
 
-    分支解决
+    分支冲突
