@@ -46,3 +46,10 @@ git reset HEAD readme.txt
 
 克隆远程仓库
    clone git@github.com:jinyaozhuzhu(用户名)/learn(用户名).git
+
+分支管理：
+    创建与切换：git checkout -b dev
+      相当于：git branch dev 创建
+            git checkout dev 切换
+            
+    查看：git branch
