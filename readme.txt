@@ -57,4 +57,9 @@ git reset HEAD readme.txt
     删除：git branch -d branchName
 
     查看分支合并图：git log --graph
-    分支管理策略
+
+分支管理策略
+    通常：Git会用Fast forward模式，删除分支后，会丢掉分支信息。
+    禁用Fast forward模式：Git就会在merge时生成一个新的commit，
+          这样，从分支历史上就可以看出分支信息。
+    命令：  git merge --no-ff -m "merge with no-ff" dev
