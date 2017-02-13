@@ -39,3 +39,7 @@ git reset HEAD readme.txt
     git remote add origin git@github.com:yaojinzhuzhu(用户名)/learngit(仓库名).git
     2. 重新设置连接
     git remote set-url origin git@github.com:username/repo_name.git
+    3.本地库的所有内容推送到远程库上(第一次)
+    git push -u origin master
+    4.本地库的所有内容推送到远程库上(第n次)
+    git push origin master
