@@ -51,5 +51,7 @@ git reset HEAD readme.txt
     创建与切换：git checkout -b dev
       相当于：git branch dev 创建
             git checkout dev 切换
-            
-    查看：git branch
+
+    查看：git branch (当前分支在名字前加*)
+    合并: git merge branchName
+    删除：git branch -d branchName 
