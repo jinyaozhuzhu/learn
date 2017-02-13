@@ -63,3 +63,28 @@ git reset HEAD readme.txt
     禁用Fast forward模式：Git就会在merge时生成一个新的commit，
           这样，从分支历史上就可以看出分支信息。
     命令：  git merge --no-ff -m "merge with no-ff" dev
+
+Bug 分支管理
+    流程：1. 储藏当前的工作现场。命令，git stash
+          2. 切换到出现bug的分支。命令，git checkout bugBranch
+          3. 在bug分支创建临时分支。命令，git chechout -b tempBranch
+          4. 在tempBranch上修复bug
+          5. 在bugBranch上合并且删除tempBranch
+          6. 接着切换开发分支上.命令，git checkout devBranch
+          7. 查看开发分支上的工作现场。命令，git stash list
+          8. 恢复工作现场。
+            8.1 先恢复，后删除stash内容。命令，git stash apply
+                                            git stash pop
+            8.2 恢复删除一起操作，git stash pop
+          9. 恢复到指定的现场，
+              git stash list
+              git stash apply stash@{0}(工作线程的代号)
+
+强行删除一个未合并的分支：
+      git branch -D branchName
+
+多人协作：
+    查看远程库信息：git remote
+    详细信息：git remote -v
+
+    
