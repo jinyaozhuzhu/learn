@@ -55,3 +55,5 @@ git reset HEAD readme.txt
     查看：git branch (当前分支在名字前加*)
     合并: git merge branchName
     删除：git branch -d branchName
+
+    查看分支合并图：git log --graph
