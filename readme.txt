@@ -10,8 +10,10 @@ git reflog 查看每一次命令  包括每一次版本的id，一般用于回�
 
 git diff HEAD -- readme.txt 查看工作区和版本库里面最新版本的区别
 git checkout -- readme.txt
-      一种是readme.txt自修改后还没有被放到暂存区，现在，撤销修改就回到和版本库一模一样的状态；
-      一种是readme.txt已经添加到暂存区后，又作了修改，现在，撤销修改就回到添加到暂存区后的状态。
+      一种是readme.txt自修改后还没有被放到暂存区，现在，
+              撤销修改就回到和版本库一模一样的状态；
+      一种是readme.txt已经添加到暂存区后，又作了修改，
+              现在，撤销修改就回到添加到暂存区后的状态。
 
 git reset HEAD readme.txt
       git reset命令既可以回退版本，
@@ -20,7 +22,8 @@ git reset HEAD readme.txt
 小结
   场景1：当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令git checkout -- file。
 
-  场景2：当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改，分两步，第一步用命令git reset HEAD file，就回到了场景1，第二步按场景1操作。
+  场景2：当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改，分两步，
+        第一步用命令git reset HEAD file，就回到了场景1，第二步按场景1操作。
 
   场景3：已经提交了不合适的修改到版本库时，想要撤销本次提交，参考版本回退一节，不过前提是没有推送到远程库。
 
@@ -87,4 +90,48 @@ Bug 分支管理
     查看远程库信息：git remote
     详细信息：git remote -v
 
-    
+    推送分支：git push origin branchName
+    一般把主分支(master)以及开发分支(dev)与远程同步
+
+    抓取分支(clone)：
+        1. 通常只能看到master分支。命令同上。
+        2. 开始时创建远程的dev分支，git checkout -b dev origin/dev
+
+    多人开发冲突：
+        1.git pull 把最新的提交从origin/dev抓下来
+        2. 第一步若失败，则指定本地dev分支与远程origin/dev分支的链接
+        3. git pull 把最新的提交从origin/dev抓下来
+
+标签管理：
+    创建标签：
+        1. 切换要打标签的分支。命令 git branch branchName
+        2. 打标签。命令 git tag tagName
+        3. 查看当前分支的标签。 git tag
+        4. 给对应提交版本打标签。 git tag v_num commit_id
+        5. 查看版本信息。git show v_num
+        6. 创建带有说明的标签，用-a指定标签名，-m指定说明文字
+            git tag -a v0.1 -m "version 0.1 released" 3628164
+        7. 通过-s用私钥签名一个标签
+            git tag -s v0.2 -m "signed version 0.2 released" fec145a
+        8. 删除标签。命令，git tag -d v_num
+        9. 推送某个标签到远程。命令，git push origin v_num
+        10 一次性推送全部尚未推送到远程的本地标签：
+            git push origin --tags
+        11. 删除推送到远程的标签
+            11.1 本地删除。  git tag -d v_num
+            11.2 远程删除。  git push origin :ref/tags/v1.0
+
+自定义Git：
+     忽略特殊的文件。
+        Git工作区的根目录下创建一个特殊的.gitignore文件，
+            然后把要忽略的文件名填进去，Git就会自动忽略这些文件。
+      配置别名：
+        例如，git config --global(表示对当前的用户有作用) alias.st status
+        可以直接使用 git st 替代 git status
+        git config --global alias.lg "log --color --graph --pretty=
+          format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)
+          %C(bold blue)<%an>%Creset' --abbrev-commit"
+
+      删除别名：
+        1. 进入 .git/config， 直接删除对应的行
+        2. 进入 .gitconfig 
