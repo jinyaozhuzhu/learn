@@ -35,5 +35,7 @@ git reset HEAD readme.txt
     将用户的秘钥添加进远程仓库管理的秘钥中，该用户就可以向仓库中添加修改文件
 
 将本地仓库与远程的仓库同步
+    1.本地仓库与github仓库连接
     git remote add origin git@github.com:yaojinzhuzhu(用户名)/learngit(仓库名).git
+    2. 重新设置连接
     git remote set-url origin git@github.com:username/repo_name.git
