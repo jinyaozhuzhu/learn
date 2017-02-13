@@ -57,3 +57,4 @@ git reset HEAD readme.txt
     删除：git branch -d branchName
 
     查看分支合并图：git log --graph
+    分支管理策略
