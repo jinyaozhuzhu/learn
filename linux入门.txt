@@ -1,0 +1,11 @@
+1. mac 用ssh连接ubuntu
+  ssh ubuntu@123.206.33.52
+2. 安装软件
+  apt-get install git
+3. 切换到root权限
+  sudo su
+4. 查看所有用户
+  cat /etc/passwd
+  awk -F':' '{ print $1}' /etc/passwd
+
+5. Git 密钥存放的位置在用户主目录下的 .ssh/id_rsa.pub中
