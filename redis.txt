@@ -1,0 +1,81 @@
+1. 删除文件夹
+  rm -r -f filename
+2. 清屏
+  clear
+3. redis 命令不区分大小写
+4 . quit 退出客户端
+5. 停止服务  进入客户端 shutdown
+
+redis 命令
+  启动  redis-server
+  检查是否在工作 redis-cli
+  检查是否安装 ping
+
+  获取配置信息  config get config_setting_name（配置名称）
+  获取所有配置信息 config get *
+  编辑配置
+        1. 直接编辑redis.conf文件 目录在：~/develop/ide/redis-3.2.8
+        2. config set config_setting_name = new_config_value
+
+  redis数据类型
+    1. 字符串
+      设置值
+          set name "yiibai.com"
+      获取值
+          get name
+          mget key1 key2
+      删除
+          del key
+      字符串切片
+            getrange name start_index end_index
+      将给定 key 的值设为 value ，并返回 key 的旧值(old value)
+            getset name "hahi"
+
+    2. 散列/哈希
+        讲多个描述信息设置到哈希表的runoobkey中
+            hmset runoobkey name "redis tutorial"  likes 2
+        获取表中的所有键与值
+            hgetall runoobkey
+        删除指定字段
+            hdel key field1[field1]
+        获取指定字段的值
+            hget key field
+        获取所有字段
+          hkeys key
+        获取字段的数量
+          hlen key
+        获取所有字段的值
+          hvals key
+        设置指定字段的值
+          hset key field value
+        del key
+
+    3. 列表
+        初始化列表(列表不存在)
+          lpush key value1 [value2]
+        列表存在
+          lpushx key value
+        切片
+          lrange key 0 9
+        获取列表的第一个元素
+            blpop key
+        获取列表的最后元素
+            brpop key
+        根据索引获取值
+            lindex key index
+        获取列表的长度
+            llen key
+        通过索引设置值
+          lset key index value
+
+    4. 集合
+        向集合中添加成员
+          sadd key val1 [val2] [val3]
+        获取成员数
+          scard key
+        获取给定集合的差集
+          sdiff key[key2]
+        获取集合的所有成员
+          smembers key
+        随机移除
+          spop key
